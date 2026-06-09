@@ -47,6 +47,6 @@ jobs:
       with:
         name: test-and-coverage-report
         path: |
-          test-output.txt
+          test-output.html
           coverage/
         if-no-files-found: ignore
