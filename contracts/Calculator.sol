@@ -24,6 +24,25 @@ contract Calculator {
         result = a * b;
     }
 
+    // This function divide two numbers
+    function divide(uint256 a, uint256 b) public {
+        require(b != 0, "Cannot divide by zero");
+        result = a / b;
+    }
+
+    // This function squares a number (a × a)
+    function square(uint256 a) public {
+        result = a * a;
+    }
+
+    // Raises a to the power of b (a^b)
+    function power(uint256 a, uint256 b) public {
+        result = 1;
+        for (uint256 i = 0; i < b; i++) {
+            result = result * a;
+        }
+    }
+
     // This returns the current result
     function getResult() public view returns (uint256) {
         return result;

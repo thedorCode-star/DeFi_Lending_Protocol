@@ -39,4 +39,34 @@ describe("Calculator Contract", function () {
       expect(result).to.equal(20n);
     });
   });
+
+  describe("Division", function () {
+    it("Should divide 100 / 10 and get 10", async function () {
+      await calculator.divide(100, 10);
+      const result = await calculator.getResult();
+      expect(result).to.equal(10n);
+    });
+  });
+
+  describe("Division by zero", function () {
+    it("Should revert when dividing by zero", async function () {
+      await expect(calculator.divide(100, 0)).to.be.revertedWith("Cannot divide by zero");
+    });
+  });
+
+  describe("Square", function () {
+    it("Should square 5 and get 25", async function () {
+      await calculator.square(5);
+      const result = await calculator.getResult();
+      expect(result).to.equal(25n);
+    });
+  });
+
+  describe("Power", function () {
+    it("Should power 2 by 3 and get 8", async function () {
+      await calculator.power(20, 3);
+      const result = await calculator.getResult();
+      expect(result).to.equal(8000n);
+    });
+  });
 });
