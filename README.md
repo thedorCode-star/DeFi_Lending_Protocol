@@ -1,57 +1,48 @@
-# Sample Hardhat 3 Project (`mocha` and `ethers`)
+# Web3 Test Suite 🔐
 
-This project showcases a Hardhat 3 project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+[![Web3 Test Suite](https://github.com/thedorCode-star/web3-test-suite/actions/workflows/test.yml/badge.svg)](https://github.com/thedorCode-star/web3-test-suite/actions/workflows/test.yml)
 
-To learn more about Hardhat 3, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3](https://hardhat.org/hardhat3-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+## 🎯 43 Passing Tests
 
-## Project Overview
+Complete test suite for DeFi lending protocol and ERC-20 token functionality.
 
-This example project includes:
+## 📊 Test Coverage
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+| Category | Tests |
+|----------|-------|
+| Lending Protocol | Deposit, Borrow, Health Factor, Repay, Withdraw |
+| Token (ERC-20) | Transfer, Mint, Burn, Allowances |
+| **Total** | **43 passing** |
 
-## Usage
+## 🚀 What I Tested
 
-### Running Tests
+### Lending Protocol (DeFi)
+- ✅ Deposit ETH as collateral
+- ✅ Borrow up to 50% of collateral
+- ✅ Health factor calculation
+- ✅ Repay loans
+- ✅ Withdraw collateral (no debt required)
 
-To run all the tests in the project, execute the following command:
+### Token Contract
+- ✅ Token transfers between accounts
+- ✅ Minting (only owner)
+- ✅ Burning tokens
+- ✅ Approvals and transferFrom
 
-```shell
-npx hardhat test
-```
+## 🛠️ Tech Stack
 
-You can also selectively run the Solidity or `mocha` tests:
+- Hardhat (Testing framework)
+- Ethers.js (Blockchain interaction)
+- Chai (Assertions)
+- Solidity (Smart contracts)
+- GitHub Actions (CI/CD)
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
-```
+## 📈 CI/CD
 
-### Make a deployment to Sepolia
+Every push to main/master automatically runs all 43 tests.
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+![Test Results](./test-results.png)
 
-To run the deployment to a local chain:
+## 🔗 Connect With Me
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
-
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+[GitHub](https://github.com/thedorCode-star) | [LinkedIn](https://linkedin.com/in/tkazadi10)

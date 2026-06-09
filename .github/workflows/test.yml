@@ -1,0 +1,41 @@
+name: Web3 Test Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+      # npm ci is faster and more reliable for CI
+    
+    - name: Run Hardhat tests
+      run: npx hardhat test
+      env:
+        CI: true  # Ensures tests exit with proper code
+    
+    - name: Upload test results (if any)
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: |
+          test-results/
+          coverage/
+        if-no-files-found: ignore
