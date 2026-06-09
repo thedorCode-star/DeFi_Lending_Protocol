@@ -25,17 +25,28 @@ jobs:
       run: npm ci
       # npm ci is faster and more reliable for CI
     
-    - name: Run Hardhat tests
-      run: npx hardhat test
+    - name: Run Hardhat tests with coverage
+      # 'shell: bash' enables pipefail, so a test failure isn't masked by tee
+      shell: bash
+      run: npx hardhat test --coverage | tee test-output.txt
       env:
         CI: true  # Ensures tests exit with proper code
     
-    - name: Upload test results (if any)
+    - name: Publish report to job summary
+      if: always()
+      shell: bash
+      run: |
+        echo '## Test & Coverage Report' >> "$GITHUB_STEP_SUMMARY"
+        echo '```' >> "$GITHUB_STEP_SUMMARY"
+        cat test-output.txt >> "$GITHUB_STEP_SUMMARY"
+        echo '```' >> "$GITHUB_STEP_SUMMARY"
+    
+    - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: test-results
+        name: test-and-coverage-report
         path: |
-          test-results/
+          test-output.txt
           coverage/
         if-no-files-found: ignore
