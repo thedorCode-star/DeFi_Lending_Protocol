@@ -1,6 +1,7 @@
 # Web3 Test Suite 🔐
 
-[![Web3 Test Suite](https://github.com/thedorCode-star/web3-test-suite/actions/workflows/test.yml/badge.svg)](https://github.com/thedorCode-star/web3-test-suite/actions/workflows/test.yml)
+[![Web3 Test Suite](https://github.com/thedorCode-star/web3-test-suite/actions/workflows/test.yml/badge.svg)]
+![Tests](https://github.com/thedorCode-star/DeFi_Lending_Protocol/actions/workflows/test.yml/badge.svg)(https://github.com/thedorCode-star/web3-test-suite/actions/workflows/test.yml)
 
 ## 🎯 43 Passing Tests
 
